@@ -1,4 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:quiz_app/custom_widget/answer_button.dart';
+import 'package:quiz_app/data/questions.dart';
 
 class QuestionScreen extends StatefulWidget{
   const QuestionScreen({super.key});
@@ -12,6 +14,24 @@ class QuestionScreen extends StatefulWidget{
 class _QuestionScreenState extends State<QuestionScreen>{
   @override
   Widget build(BuildContext context){
-    return Text('Welcome to question page');
+    final currentQuestion = questions[0];
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(currentQuestion.question,style: TextStyle(fontSize: 20,color: Colors.white),),
+          SizedBox(height: 20,),
+          AnswerButton(currentQuestion.answers[0], () {}),
+          SizedBox(height: 20,),
+          AnswerButton(currentQuestion.answers[1], () {}),
+          SizedBox(height: 20,),
+          AnswerButton(currentQuestion.answers[2], () {}),
+          SizedBox(height: 20,),
+          AnswerButton(currentQuestion.answers[3], () {}),
+          SizedBox(height: 20,),
+        ],
+      ),
+    );
   }
 }
