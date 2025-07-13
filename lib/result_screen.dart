@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:quiz_app/data/questions.dart';
+import 'package:quiz_app/question_summery.dart';
 
 class ResultScreen extends StatelessWidget{
   const ResultScreen({required this.chosenAnswer,super.key});
@@ -31,8 +32,9 @@ class ResultScreen extends StatelessWidget{
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch, // this will take all the available space horizontally
             children: [
-              Text('You have answered X question out of Y question'),
-
+              Text('You have answered X question out of Y question',style: TextStyle(fontSize: 25,),textAlign: TextAlign.center,),
+              SizedBox(height: 30,),
+              QuestionSummery(summeryData: getSummeryData())
             ],
           ),
         )
