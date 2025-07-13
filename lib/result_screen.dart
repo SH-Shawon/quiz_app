@@ -24,6 +24,11 @@ class ResultScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String,Object>> summeryData = getSummeryData();
+    final totalQuestion = questions.length;
+    final correctlyAnsweredQuestion = summeryData.where((value){
+      return value['actualAnswer'] == value['selectedAnswer'];
+    }).length;
     return SizedBox(
         width: double.infinity,
         child: Container(
@@ -32,9 +37,9 @@ class ResultScreen extends StatelessWidget{
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch, // this will take all the available space horizontally
             children: [
-              Text('You have answered X question out of Y question',style: TextStyle(fontSize: 25,),textAlign: TextAlign.center,),
+              Text('You answered $correctlyAnsweredQuestion question correctly out of $totalQuestion',style: TextStyle(fontSize: 25,),textAlign: TextAlign.center,),
               SizedBox(height: 30,),
-              QuestionSummery(summeryData: getSummeryData())
+              QuestionSummery(summeryData: summeryData)
             ],
           ),
         )
