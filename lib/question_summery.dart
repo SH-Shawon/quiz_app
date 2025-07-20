@@ -25,7 +25,7 @@ class QuestionSummery extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 ),
                 SizedBox(width: 30),
-                Expanded(
+                Expanded( // Expanded widget make sure that the child widget (here Column) can't take more vertical (For column) or horizontal(For Row) space then parent(here Row)
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
